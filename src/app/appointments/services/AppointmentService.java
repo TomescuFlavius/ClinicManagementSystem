@@ -33,7 +33,7 @@ public class AppointmentService {
         }
     }
 
-    public void setAppointments(){
+    public void saveAppointments(){
         try{
             FileWriter fileWriter=new FileWriter(file);
             PrintWriter printWriter=new PrintWriter(fileWriter);
