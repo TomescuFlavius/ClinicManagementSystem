@@ -1,0 +1,5 @@
+1,Ionescu Andrei,1987-03-21,5010321987654,andrei.ionescu@email.com,0741234567
+2,Popescu Maria,1992-07-15,2920715981123,maria.popescu@email.com,0723456789
+3,Georgescu Vlad,1975-12-03,1751203123456,vlad.georgescu@email.com,0734567890
+4,Dumitru Elena,1989-05-10,2890510987654,elena.dumitru@email.com,0756789012
+5,Stan Ilie,1995-09-29,1950929981123,ilie.stan@email.com,0767890123

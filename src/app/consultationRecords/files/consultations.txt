@@ -1,0 +1,5 @@
+1,1,2,2024-05-10,HTA ușoară,Tratament cu Enalapril
+2,2,4,2024-05-12,Viroză respiratorie,Hidratare + Paracetamol
+3,3,3,2024-05-13,Migrenă cronică,Sumatriptan + repaus
+4,5,5,2024-05-14,Leziune ligamentară,Kinetoterapie + repaus
+5,4,1,2024-05-15,Aritmie,Monitorizare ECG + tratament

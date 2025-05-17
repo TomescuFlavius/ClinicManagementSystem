@@ -1,0 +1,5 @@
+1,1,2,2024-05-10,14:30,Control tensiune
+2,2,4,2024-05-12,09:00,Febră și tuse
+3,3,3,2024-05-13,11:00,Dureri de cap persistente
+4,5,5,2024-05-14,15:45,Durere genunchi
+5,4,1,2024-05-15,10:30,Consult cardiologic

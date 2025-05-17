@@ -1,0 +1,5 @@
+1,Dr. Radu Popa,Cardiologie,Luni-Vineri 08:00-16:00
+2,Dr. Ana Dobre,Medicină Internă,Luni-Miercuri 10:00-18:00
+3,Dr. Mihai Vasilescu,Neurologie,Marți-Vineri 09:00-17:00
+4,Dr. Ioana Toma,Pediatrie,Luni-Joi 08:00-14:00
+5,Dr. Sorin Petrescu,Ortopedie,Luni-Vineri 12:00-20:00
