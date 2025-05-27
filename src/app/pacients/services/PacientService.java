@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class PacientService {
@@ -32,24 +33,24 @@ public class PacientService {
         }
     }
 
-    public void saveDoctor(){
+    public void savePacient(){
         try{
             FileWriter fileWriter=new FileWriter(file);
             PrintWriter printWriter=new PrintWriter(fileWriter);
-            printWriter.println(toSavePacient());
+            printWriter.println(toSavePacients());
             printWriter.close();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public String toSavePacient(){
+    public String toSavePacients(){
         String output="";
         int i;
-        for(i=0;i<=this.pacients.size()-1;i++){
-            output+=this.pacients.get(i).toSavePacient()+"\n";
+        for(i=0;i<this.pacients.size()-1;i++){
+            output+= this.pacients.get(i).toSavePacient()+"\n";
         }
-        return output+this.pacients.get(i)+toSavePacient();
+        return output+this.pacients.get(i).toSavePacient();
     }
 
     public void showPacients(){
@@ -65,5 +66,23 @@ public class PacientService {
             }
         }
         return null;
+    }
+
+    public Pacient getPacientByNameAndPassword(String email, String password){
+        for(Pacient pacient:pacients){
+            if(pacient.getEmail().equals(email) && pacient.getPassword().equals(password)){
+                return pacient;
+            }
+        }
+        return null;
+    }
+
+    public int generateId() {
+        Random random = new Random();
+        int randomId = random.nextInt(1000) + 1;
+        while (this.getPacientById(randomId) != null) {
+            randomId = random.nextInt(1000) + 1;
+        }
+        return randomId;
     }
 }

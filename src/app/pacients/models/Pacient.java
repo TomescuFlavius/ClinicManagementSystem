@@ -7,9 +7,10 @@ public class Pacient {
     private String cnp;
     private String email;
     private String phoneNumber;
+    private String password;
 
 
-    public Pacient(int id, String name, String date, String cnp, String email, String phoneNumber){
+    public Pacient(int id, String name, String date, String cnp, String email, String phoneNumber, String password){
         this.id=id;
         this.name=name;
         this.date=date;
@@ -26,6 +27,16 @@ public class Pacient {
         cnp = text.split(",")[3];
         email = text.split(",")[4];
         phoneNumber = text.split(",")[5];
+        password = text.split(",")[6];
+    }
+
+    public Pacient(String name, String date, String cnp, String email, String phoneNumber, String password){
+        this.name=name;
+        this.date=date;
+        this.cnp= cnp;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.password=password;
     }
 
     public int getId() {
@@ -76,6 +87,12 @@ public class Pacient {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getPassword(){return password;};
+
+    public void setPassword(String password){this.password=password;}
+
+
+
     public String descriere(){
         String text="";
         text+="id" + this.id + "\n";
@@ -84,11 +101,11 @@ public class Pacient {
         text+="cnp" + this.cnp + "\n";
         text+="email" + this.email + "\n";
         text+="phone number" + this.phoneNumber + "\n";
+        text+="password" + this.password + "\n";
         return text;
     }
 
     public String toSavePacient(){
-        return id + "," + name + "," + date + "," + cnp + "," + email
-                + "," + phoneNumber;
+        return id + "," + name + "," + date + "," + cnp + "," + email + "," + phoneNumber + "," + password;
     }
 }

@@ -47,10 +47,10 @@ public class AppointmentService {
     public String toSaveAppointmens(){
         String output="";
         int i;
-        for(i=0;i<=this.appointments.size()-1;i++){
+        for(i=0;i<this.appointments.size()-1;i++){
             output+=this.appointments.get(i).toSaveAppointment()+"\n";
         }
-        return output+this.appointments.get(i)+toSaveAppointmens();
+        return output+this.appointments.get(i).toSaveAppointment();
     }
 
     public void showAppointments(){
@@ -66,6 +66,17 @@ public class AppointmentService {
             }
         }
         return null;
+    }
+
+    public List<Appointment>  getAppointmentByPacientId(int id)
+    {
+        List<Appointment> filteredList= new ArrayList<>();
+        for (Appointment appointment : appointments){
+            if(appointment.getIdPacient()==id){
+                filteredList.add(appointment);
+            }
+        }
+        return filteredList;
     }
 
 

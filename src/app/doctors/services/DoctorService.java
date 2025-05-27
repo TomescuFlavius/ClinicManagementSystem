@@ -36,20 +36,20 @@ public class DoctorService {
         try{
             FileWriter fileWriter=new FileWriter(file);
             PrintWriter printWriter=new PrintWriter(fileWriter);
-            printWriter.println(toSaveDoctor());
+            printWriter.println(toSaveDoctors());
             printWriter.close();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public String toSaveDoctor(){
+    public String toSaveDoctors(){
         String output="";
         int i;
-        for(i=0;i<=this.doctors.size()-1;i++){
+        for(i=0;i<this.doctors.size()-1;i++){
             output+=this.doctors.get(i).toSaveDoctor()+"\n";
         }
-        return output+this.doctors.get(i)+toSaveDoctor();
+        return output+this.doctors.get(i).toSaveDoctor();
     }
 
     public void showDoctors(){

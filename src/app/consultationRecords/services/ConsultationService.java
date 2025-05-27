@@ -34,24 +34,24 @@ public class ConsultationService {
         }
     }
 
-    public void saveConsultation(){
+    public void saveConsultations(){
         try{
             FileWriter fileWriter=new FileWriter(file);
             PrintWriter printWriter=new PrintWriter(fileWriter);
-            printWriter.println(toSaveConsultation());
+            printWriter.println(toSaveConsultations());
             printWriter.close();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public String toSaveConsultation(){
+    public String toSaveConsultations(){
         String output="";
         int i;
-        for(i=0;i<=this.consultations.size()-1;i++){
+        for(i=0;i<this.consultations.size()-1;i++){
             output+=this.consultations.get(i).toSaveConsultation()+"\n";
         }
-        return output+this.consultations.get(i)+toSaveConsultation();
+        return output+this.consultations.get(i).toSaveConsultation();
     }
 
     public void showConsultation(){
@@ -67,6 +67,16 @@ public class ConsultationService {
             }
         }
         return null;
+    }
+
+    public List<Consultation> getConsultationsByPacientId(int id){
+        List<Consultation> filteredList = new ArrayList<>();
+        for(Consultation consultation: consultations){
+            if (consultation.getIdPacient()==id){
+                filteredList.add(consultation);
+            }
+        }
+        return filteredList;
     }
 
 }
