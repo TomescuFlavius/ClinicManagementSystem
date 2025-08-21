@@ -15,7 +15,7 @@ public class ConsultationService {
     private List<Consultation> consultations;
 
     public ConsultationService(){
-        this.file=new File("C:\\mycode\\oop\\ClinicManagementSystem\\src\\app\\consultationRecords\\files\\consultations.txt");
+        this.file=new File("C:\\mycode\\oop\\incapsulare\\ClinicManagementSystem\\src\\app\\consultationRecords\\files\\consultations.txt");
         this.consultations=new ArrayList<>();
         this.loadConsultation();
     }
@@ -56,7 +56,7 @@ public class ConsultationService {
 
     public void showConsultation(){
         for (Consultation consultation : consultations){
-            System.out.println(consultation.descriere());
+            System.out.println(consultation.toString());
         }
     }
 

@@ -3,6 +3,7 @@ package app.views;
 import app.pacients.models.Pacient;
 import app.pacients.services.PacientService;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class ViewLogin {
@@ -42,7 +43,7 @@ public class ViewLogin {
         System.out.println("Name:");
         String name= scanner.nextLine();
         System.out.println("Date of birth:");
-        String date = scanner.nextLine();
+        LocalDate date = LocalDate.parse(scanner.nextLine());
         System.out.println("CNP:");
         String cnp=scanner.nextLine();
         System.out.println("Email:");

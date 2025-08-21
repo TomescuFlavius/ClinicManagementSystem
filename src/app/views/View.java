@@ -65,9 +65,11 @@ public class View {
         List<Appointment> apointments= appointmentService.getAppointmentByPacientId(pacient.getId());
 
         for(Appointment appointment : apointments){
-            System.out.println("Numele pacientului: " + pacient.getName()+"\n" + "Data programarii: "  +appointment.getDate()
-                        +"\n" + "Ora programarii: " + appointment.getTime()+ "\n" + "Motivul programarii:" +
-                        appointment.getAppointmentReason()+"\n");
+            System.out.println("Numele pacientului: " + pacient.getName()
+                        +"\n" + "Data programarii: "  +appointment.getDate()
+                        + "\n" + "Ora programarii: " + appointment.getStartingTime()
+                        + "\n" + "Ora finalizarii programarii: "+appointment.getEndingTime()
+                        + "\n" + "Motivul programarii:" + appointment.getAppointmentReason()+"\n");
         }
     }
 
@@ -80,6 +82,8 @@ public class View {
                                 + consultation.getTreatment() + "\n");
         }
     }
+
+    
 
 
 

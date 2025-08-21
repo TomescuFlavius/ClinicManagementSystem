@@ -14,7 +14,7 @@ public class PacientService {
     private List<Pacient> pacients;
 
     public PacientService(){
-        this.file=new File("C:\\mycode\\oop\\ClinicManagementSystem\\src\\app\\pacients\\files\\pacients.txt");
+        this.file=new File("C:\\mycode\\oop\\incapsulare\\ClinicManagementSystem\\src\\app\\pacients\\files\\pacients.txt");
         this.pacients=new ArrayList<>();
         this.loadPacientss();
     }
@@ -55,7 +55,7 @@ public class PacientService {
 
     public void showPacients(){
         for (Pacient pacient : pacients){
-            System.out.println(pacient.descriere());
+            System.out.println(pacient.toString());
         }
     }
 

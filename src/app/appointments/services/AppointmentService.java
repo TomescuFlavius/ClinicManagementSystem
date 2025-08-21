@@ -14,7 +14,7 @@ public class AppointmentService {
     private List<Appointment> appointments;
 
     public AppointmentService(){
-        this.file=new File("C:\\mycode\\oop\\ClinicManagementSystem\\src\\app\\appointments\\files\\appointments.txt");
+        this.file=new File("C:\\mycode\\oop\\incapsulare\\ClinicManagementSystem\\src\\app\\appointments\\files\\appointments.txt");
         this.appointments=new ArrayList<>();
         this.loadAppointments();
     }
@@ -55,7 +55,7 @@ public class AppointmentService {
 
     public void showAppointments(){
         for (Appointment appointment : appointments){
-            System.out.println(appointment.descriere());
+            System.out.println(appointment.toString());
         }
     }
 
@@ -78,8 +78,6 @@ public class AppointmentService {
         }
         return filteredList;
     }
-
-
 
 
 }

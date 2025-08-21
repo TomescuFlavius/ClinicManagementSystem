@@ -13,7 +13,7 @@ public class DoctorService {
     private List<Doctor> doctors;
 
     public DoctorService(){
-        this.file=new File("C:\\mycode\\oop\\ClinicManagementSystem\\src\\app\\doctors\\files\\doctors.txt");
+        this.file=new File("C:\\mycode\\oop\\incapsulare\\ClinicManagementSystem\\src\\app\\doctors\\files\\doctors.txt");
         this.doctors=new ArrayList<>();
         this.loadDoctors();
     }
@@ -54,7 +54,7 @@ public class DoctorService {
 
     public void showDoctors(){
         for (Doctor doctor : doctors){
-            System.out.println(doctor.descriere());
+            System.out.println(doctor.toString());
         }
     }
 

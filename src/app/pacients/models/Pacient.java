@@ -1,16 +1,22 @@
 package app.pacients.models;
 
-public class Pacient {
+import app.doctors.models.Doctor;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Pacient implements Comparable {
     private int id;
     private String name;
-    private String date;
+    private LocalDate date;
     private String cnp;
     private String email;
     private String phoneNumber;
     private String password;
 
 
-    public Pacient(int id, String name, String date, String cnp, String email, String phoneNumber, String password){
+    public Pacient(int id, String name, LocalDate date, String cnp, String email, String phoneNumber, String password){
         this.id=id;
         this.name=name;
         this.date=date;
@@ -23,14 +29,14 @@ public class Pacient {
         text.split(",");
         id =Integer.parseInt(text.split(",")[0]);
         name = text.split(",")[1];
-        date = text.split(",")[2];
+        date = LocalDate.parse((text.split(",")[2]), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         cnp = text.split(",")[3];
         email = text.split(",")[4];
         phoneNumber = text.split(",")[5];
         password = text.split(",")[6];
     }
 
-    public Pacient(String name, String date, String cnp, String email, String phoneNumber, String password){
+    public Pacient(String name, LocalDate date, String cnp, String email, String phoneNumber, String password){
         this.name=name;
         this.date=date;
         this.cnp= cnp;
@@ -39,6 +45,18 @@ public class Pacient {
         this.password=password;
     }
 
+    public Pacient(Builder builder){
+        this.name=builder.name;
+        this.date=builder.date;
+        this.cnp=builder.cnp;
+        this.email=builder.email;
+        this.phoneNumber=builder.phoneNumber;
+        this.password= builder.password;
+    }
+
+    public static Doctor.Builder builder(){
+        return new Doctor.Builder();
+    }
     public int getId() {
         return id;
     }
@@ -55,11 +73,11 @@ public class Pacient {
         this.name = name;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -93,19 +111,68 @@ public class Pacient {
 
 
 
-    public String descriere(){
-        String text="";
-        text+="id" + this.id + "\n";
-        text+="name" + this.name + "\n";
-        text+="date" + this.date + "\n";
-        text+="cnp" + this.cnp + "\n";
-        text+="email" + this.email + "\n";
-        text+="phone number" + this.phoneNumber + "\n";
-        text+="password" + this.password + "\n";
-        return text;
+    public String toString(){
+        return id + "," + name + "," + date + "," + cnp + "," + email + "," + phoneNumber + "," + password;
     }
 
     public String toSavePacient(){
         return id + "," + name + "," + date + "," + cnp + "," + email + "," + phoneNumber + "," + password;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Pacient pacient= (Pacient) o;
+        if(pacient.id>this.id){
+            return -1;
+        }
+        else if (pacient.id<this.id){
+            return 1;
+        }
+        return 0;
+    }
+
+    public static class Builder{
+        private int id;
+        private String name;
+        private LocalDate date;
+        private String cnp;
+        private String email;
+        private String phoneNumber;
+        private String password;
+
+        public Builder id(int id){
+            this.id=id;
+            return this;
+        }
+
+        public Builder name(String name){
+            this.name=name;
+            return this;
+        }
+
+        public Builder date(LocalDate date){
+            this.date=date;
+            return this;
+        }
+
+        public Builder cnp(String cnp){
+            this.cnp=cnp;
+            return this;
+        }
+
+        public Builder email(String email){
+            this.email=email;
+            return this;
+        }
+
+        public Builder phoneNumber(String phoneNumber){
+            this.phoneNumber=phoneNumber;
+            return this;
+        }
+
+        public Builder password(String password){
+            this.password=password;
+            return this;
+        }
     }
 }
